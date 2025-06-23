@@ -109,7 +109,7 @@ jobs:
         cache-key-prefix: 'cache-qt'
         aqtversion: '==3.1.*'
         extra: '--base https://mirrors.tuna.tsinghua.edu.cn/qt'
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         submodules: recursive
         fetch-depth: 0
