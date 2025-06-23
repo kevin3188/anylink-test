@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=AnyLink Secure Client
+Comment=A VPN client that utilizes TLS and DTLS for secure session establishment
+Terminal=false
+Icon=/opt/anylink/anylink.png
+Exec=/opt/anylink/bin/anylink
+StartupNotify=false

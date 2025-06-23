@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Installer>
+    <Name>斯坦星球安全客户端</Name>
+    <Version>0.9.5</Version>
+    <Title>斯坦星球安全客户端</Title>
+    <Publisher>https://www.stemstar.com/</Publisher>
+    <ProductUrl>https://www.stemstar.com/</ProductUrl>
+    <InstallerWindowIcon>anylink64.png</InstallerWindowIcon>
+    <InstallerApplicationIcon>anylink</InstallerApplicationIcon>
+    <StartMenuDir>StemStar</StartMenuDir>
+    <TargetDir>@ApplicationsDir@/</TargetDir>
+    <RemoveTargetDir>true</RemoveTargetDir>
+    <WizardShowPageList>false</WizardShowPageList>
+    <SupportsModify>false</SupportsModify>
+    <RepositorySettingsPageVisible>false</RepositorySettingsPageVisible>
+    <MaintenanceToolName>uninstall</MaintenanceToolName>
+    <PersistentLocalCache>false</PersistentLocalCache>
+    <ControlScript>controller.js</ControlScript>
+    <DisableCommandLineInterface>true</DisableCommandLineInterface>
+    <DisableAuthorizationFallback>true</DisableAuthorizationFallback>
+    <SaveDefaultRepositories>false</SaveDefaultRepositories>
+</Installer>
