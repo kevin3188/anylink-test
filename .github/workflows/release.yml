@@ -118,6 +118,25 @@ jobs:
       shell: bash
       run: |
         git submodule update --init --recursive
+    - name: Build qtkeychain
+      shell: bash
+      run: |
+        cd 3rdparty/qtkeychain
+        mkdir build && cd build
+        if [ "${{ matrix.build }}" = "linux" -o "${{ matrix.build }}" = "linux-latest" ]; then
+          cmake .. -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release
+        elif [ "${{ matrix.build }}" = "windows" ]; then
+          cmake .. -DCMAKE_INSTALL_PREFIX=$PWD/../../out -DCMAKE_BUILD_TYPE=Release
+        elif [ "${{ matrix.build }}" = "macos" -o "${{ matrix.build }}" = "macos-arm64" ]; then
+          cmake .. -DCMAKE_INSTALL_PREFIX=$PWD/../../out -DCMAKE_BUILD_TYPE=Release
+        fi
+        cmake --build . --config Release
+        if [ "${{ matrix.build }}" = "linux" -o "${{ matrix.build }}" = "linux-latest" ]; then
+          sudo cmake --install .
+        else
+          cmake --install .
+        fi
+        cd ../../..
     - name: Build
       shell: bash
       run: |
