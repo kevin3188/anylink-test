@@ -229,7 +229,7 @@ jobs:
           hdiutil create -fs HFS+ -srcfolder ${{ matrix.installer-name }}.app -format UDZO "${{ github.workspace }}"/archive/${{ env.ARCHIVE_NAME }}
         fi
 
-    - if: startsWith(github.ref, 'refs/heads/')
+    - if: github.repository == 'kevin3188/anylink-test' && startsWith(github.ref, 'refs/heads/')
       name: Continuous release
       uses: softprops/action-gh-release@v1
       with:
@@ -237,7 +237,7 @@ jobs:
         files: archive/${{ env.ARCHIVE_NAME }}
         tag_name: continuous
         body: 'See [README](https://github.com/kevin3188/anylink-test) for more details.'
-    - if: startsWith(github.ref, 'refs/tags/') && (matrix.build == 'windows')
+    - if: github.repository == 'kevin3188/anylink-test' && startsWith(github.ref, 'refs/tags/') && (matrix.build == 'windows')
       name: Tagged release
       uses: softprops/action-gh-release@v1
       with:
