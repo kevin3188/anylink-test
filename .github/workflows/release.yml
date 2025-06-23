@@ -118,6 +118,17 @@ jobs:
       shell: bash
       run: |
         git submodule update --init --recursive
+    - name: Check qtkeychain submodule
+      shell: bash
+      run: |
+        if [ ! -d "3rdparty/qtkeychain" ]; then
+          echo "❌ ERROR: 3rdparty/qtkeychain 子模块未拉取，请在本地执行："
+          echo "   git submodule update --init --recursive"
+          echo "   git add .gitmodules 3rdparty/qtkeychain"
+          echo "   git commit -m 'fix: add qtkeychain submodule'"
+          echo "   git push"
+          exit 1
+        fi
     - name: Build qtkeychain
       shell: bash
       run: |
